@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * This allows to display a slider with a handle and tick marks
  *
- <!-- * @example ButtonExample  -->
+ <!-- * @example SliderExample  -->
  *
  * (the tag @example followed by the name of an example included in folder 'examples' will
  * automatically include the example in the javadoc.)
@@ -30,7 +30,8 @@ public class SliderHandle extends Slider {
 
     @Override
     public void draw() {
-        parent.fill(0);
+        parent.fill(color);
+        parent.stroke(color);
         parent.strokeWeight(10);
         parent.line(x,y,x+w,y);
         parent.rectMode(CENTER);
@@ -51,9 +52,26 @@ public class SliderHandle extends Slider {
         }
     }
 
-    public SliderHandle setHandleWidth(float width) {
+    /**
+     * Changes the width of the handle
+     *
+     * @param width
+     *  the new handle width
+     */
+
+    public void setHandleWidth(float width) {
         handleW = width;
-        return this;
+    }
+
+    /**
+     * Changes the number of tick marks (= number of possible positions for the handle)
+     *
+     * @param number
+     *  the number of ticks
+     */
+
+    public void setTickNum(int number) {
+        tickNum = number;
     }
 
 }

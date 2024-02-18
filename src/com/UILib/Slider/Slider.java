@@ -3,6 +3,7 @@ package UILib;
 
 import processing.core.*;
 import static processing.core.PGraphics.*;
+import static processing.core.PApplet.*;
 
 import java.awt.Color;
 import java.lang.Math.*;
@@ -11,7 +12,7 @@ import java.util.*;
 /**
  * This allows to display a slider
  *
- <!-- * @example ButtonExample  -->
+ <!-- * @example SliderExample  -->
  *
  * (the tag @example followed by the name of an example included in folder 'examples' will
  * automatically include the example in the javadoc.)
@@ -36,6 +37,7 @@ public class Slider {
     public void draw() {
         parent.rectMode(CORNER);
         parent.fill(200);
+        parent.stroke(0);
         parent.rect(x,y,w,h);
         parent.fill(color);
         parent.rect(x,y,handleX-x,h);
@@ -63,9 +65,17 @@ public class Slider {
         } else return false;
     }
 
+    /**
+     * Sets the value of the slider relative to its size
+     * @param value
+     *  the new value between 0 and 100
+     */
+    public void setValue(float value) {
+        handleX = x+value*w/100;
+    }
 
     /**
-     * Changes the absolute position of the button.
+     * Changes the absolute position of the slider.
      *
      * @param x
      *               the new X coordinate
@@ -80,7 +90,7 @@ public class Slider {
     }
 
     /**
-     * Changes the size of the button.
+     * Changes the size of the slider.
      *
      * @param width
      *               the new width
@@ -101,11 +111,21 @@ public class Slider {
      * @param theColor
      *               the new color: use processing's color(r,g,b)
      *
-     *
      */
 
     public void setColor(int theColor) {
         color = theColor;
+    }
+
+    /**
+     * Returns the handle position relative to the size of the slider
+     *
+     * @return number between 0 and 100
+     */
+
+    public float getRelativePos() {
+        //println(w,handleX,x);
+        return (handleX-x)*100/w;
     }
 
 }
