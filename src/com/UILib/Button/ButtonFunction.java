@@ -29,7 +29,7 @@ public class ButtonFunction extends Button {
         parent = papplet;
     }
 
-    void onClick() {
+    public void onClick() {
         if(super.isMouseOver()) {
             try {
                 parent.getClass().getMethod(method).invoke(parent);

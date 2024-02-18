@@ -54,7 +54,11 @@ public class UILib {
 
 	List<Button> allButtons = new ArrayList<Button>();
 	List<ButtonFunction> allFunctionButtons = new ArrayList<ButtonFunction>();
-	
+	List<ButtonImage> allImageButtons = new ArrayList<ButtonImage>();
+
+	List<Slider> allSliders = new ArrayList<Slider>();
+	List<SliderHandle> allHandleSliders = new ArrayList<SliderHandle>();
+
 	public final static String VERSION = "1.0";
 	
 
@@ -93,7 +97,20 @@ public class UILib {
 		for(ButtonFunction button : allFunctionButtons) {
 			button.draw();
 		}
+		for(ButtonImage button : allImageButtons) {
+			button.draw();
+		}
+		for(Slider slider : allSliders) {
+			slider.update();
+			slider.draw();
+		}
+		for(SliderHandle slider : allHandleSliders) {
+			slider.update();
+			slider.draw();
+		}
 	}
+
+	//==========================================================================================================================//
 
 	/**
 	 * Adds a button to the sketch.
@@ -143,7 +160,32 @@ public class UILib {
 	}
 
 	/**
-	 * returns the list of all buttons
+	 * Adds an image actins as a button to the sketch.
+	 * The button is drawn from the center.
+	 *
+	 <!-- * @example ButtonExample -->
+	 * @param x
+	 *               the X coordinate of the button
+	 * @param y
+	 *               the Y coordinate of the button
+	 * @param w
+	 *               the width of the button
+	 * @param h
+	 *               the height of the button
+	 * @param image
+	 * 				 the image to draw
+	 *
+	 * @return	the Button created
+	 *
+	 */
+	public ButtonImage addButtonImage(float x,float y,int w,int h, PImage image) {
+		ButtonImage  b = new ButtonImage(x,y,w,h,image,parent);
+		allImageButtons.add(b);
+		return b;
+	}
+
+	/**
+	 * returns the list of all buttons in the sketch
 	 *
 	 * @return List<Button>
 	 */
@@ -161,6 +203,66 @@ public class UILib {
 	public List<ButtonFunction> getAllFunctionButtons() {
 		return allFunctionButtons;
 	}
+
+	/**
+	 * returns the list of all image buttons in the sketch
+	 *
+	 * @return List<ButtonImage>
+	 */
+
+	public List<ButtonImage> getAllImageButtons() {
+		return allImageButtons;
+	}
+
+
+	/**
+	 * Adds a slider to the sketch.
+	 * The slider is drawn from the top-left corner.
+	 *
+	 <!-- * @example ButtonExample -->
+	 * @param x
+	 *               the X coordinate of the slider
+	 * @param y
+	 *               the Y coordinate of the slider
+	 * @param w
+	 *               the width of the slider
+	 * @param h
+	 *               the height of the slider
+	 *
+	 * @return	the Slider created
+	 *
+	 */
+	public Slider addSlider(float x,float y,int w,int h) {
+		Slider  s = new Slider(x,y,w,h,parent);
+		allSliders.add(s);
+		return s;
+	}
+
+	/**
+	 * Adds a slider with a handle and tick marks to the sketch.
+	 * The slider is drawn from the top-left corner.
+	 *
+	 <!-- * @example ButtonExample -->
+	 * @param x
+	 *               the X coordinate of the slider
+	 * @param y
+	 *               the Y coordinate of the slider
+	 * @param w
+	 *               the width of the slider
+	 * @param h
+	 *               the height of the handle
+	 *
+	 * @return	the SliderHanlde created
+	 *
+	 */
+	public SliderHandle addSliderHandle(float x,float y,int w,int h) {
+		SliderHandle  s = new SliderHandle(x,y,w,h,parent);
+		allHandleSliders.add(s);
+		return s;
+	}
+
+	//==================================================================================================================//
+
 
 	/**
 	 * return the version of the library.

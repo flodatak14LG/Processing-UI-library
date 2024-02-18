@@ -8,9 +8,7 @@ import java.lang.Math.*;
 import java.util.*;
 
 /**
- * This is a template class and can be used to start a new processing library or tool.
- * Make sure you rename this class as well as the name of the example package 'template'
- * to your own library or tool naming convention.
+ * This allows to display a clickable button
  *
  <!-- * @example ButtonExample  -->
  *
@@ -47,79 +45,63 @@ public class Button {
 
     public void draw() {
         parent.rectMode(parent.CENTER);
-        parent.fill(color);
+        parent.fill(isPressed()? color-10:color);
         parent.stroke(strokeColor);
         parent.rect(x,y,w,h);
     }
 
     /**
      * Changes the absolute position of the button.
-     * Can be called on its own or affected to a variable
      *
      * @param x
      *               the new X coordinate
      * @param y
      *               the new Y coordinate
      *
-     * @return	the Button modified
-     *
      */
 
-    public Button setPosition(int x,int y) {
+    public void setPosition(int x,int y) {
         this.x = x;
         this.y = y;
-        return this;
     }
 
     /**
      * Changes the size of the button.
-     * Can be called on its own or affected to a variable
      *
      * @param width
      *               the new width
      * @param height
      *               the new height
      *
-     * @return	the Button modified
-     *
      */
 
-    public Button setSize(int width,int height) {
+    public void setSize(int width,int height) {
         this.w = width;
         this.h = height;
-        return this;
     }
 
     /**
      * Changes the color of the button.
-     * Can be called on its own or affected to a variable
      *
      * @param theColor
      *               the new color: use processing's color(r,g,b)
      *
-     * @return	the Button modified
-     *
      */
 
-    public Button setColor(int theColor) {
+    public void setColor(int theColor) {
         color = theColor;
-        return this;
     }
 
     /**
      * Changes the color of the button's outline.
-     * Can be called on its own or affected to a variable
      *
      * @param theColor
      *               the new color: use processing's color(r,g,b)
      *
-     * @return	the Button modified
-     *
      */
 
-    public Button setStrokeColor(int theColor) {
+    public void setStrokeColor(int theColor) {
         strokeColor = theColor;
-        return this;
     }
 
     /**
