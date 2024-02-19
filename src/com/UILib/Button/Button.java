@@ -45,9 +45,13 @@ public class Button {
 
     public void draw() {
         parent.rectMode(parent.CENTER);
-        parent.fill(isPressed()? color-10:color);
+        parent.fill(color);
         parent.stroke(strokeColor);
         parent.rect(x,y,w,h);
+        if(isPressed()) {
+            parent.fill(parent.color(150,100));
+            parent.rect(x,y,w,h);
+        }
     }
 
     /**
