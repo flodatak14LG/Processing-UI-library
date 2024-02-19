@@ -27,12 +27,12 @@
 
 package UILib;
 
-
 import java.util.*;
 
 import processing.core.*;
 import static processing.core.PApplet.*;
 import static processing.event.MouseEvent.*;
+import static processing.event.KeyEvent.*;
 import processing.event.*;
 
 /**
@@ -40,7 +40,7 @@ import processing.event.*;
  * Make sure you rename this class as well as the name of the example package 'template' 
  * to your own library or tool naming convention.
  * 
- <!-- * @example Hello  -->
+ <!-- * @example Button/ButtonExample-->
  * 
  * (the tag @example followed by the name of an example included in folder 'examples' will
  * automatically include the example in the javadoc.)
@@ -59,6 +59,8 @@ public class UILib {
 	List<Slider> allSliders = new ArrayList<Slider>();
 	List<SliderHandle> allHandleSliders = new ArrayList<SliderHandle>();
 
+	List<Textfield> allTextfields = new ArrayList<Textfield>();
+
 	public final static String VERSION = "1.0";
 	
 
@@ -74,6 +76,7 @@ public class UILib {
 		welcome();
 		parent.registerMethod("draw", this);
 		parent.registerMethod("mouseEvent", this);
+		parent.registerMethod("keyEvent", this);
 	}
 
 	public void mouseEvent(MouseEvent event) {
@@ -81,6 +84,18 @@ public class UILib {
 			println("click");
 			for(ButtonFunction button : allFunctionButtons) {
 				button.onClick();
+			}
+		} else if (event.getAction() == MouseEvent.PRESS) {
+			for(Textfield tf : allTextfields) {
+				tf.onClick();
+			}
+		}
+	}
+
+	public void keyEvent(KeyEvent event) {
+		if( event.getAction() == KeyEvent.PRESS) {
+			for (Textfield tf : allTextfields) {
+				tf.onKeyPressed(parent.key , parent.keyCode);
 			}
 		}
 	}
@@ -107,6 +122,9 @@ public class UILib {
 		for(SliderHandle slider : allHandleSliders) {
 			slider.update();
 			slider.draw();
+		}
+		for(Textfield tf : allTextfields) {
+			tf.draw();
 		}
 	}
 
@@ -256,9 +274,27 @@ public class UILib {
 	 *
 	 */
 	public SliderHandle addSliderHandle(float x,float y,int w,int h) {
-		SliderHandle  s = new SliderHandle(x,y,w,h,parent);
+		SliderHandle s = new SliderHandle(x,y,w,h,parent);
 		allHandleSliders.add(s);
 		return s;
+	}
+
+	/**
+	 * Adds a Textfield to the sketch.
+	 * The Textfield is drawn from the top-left corner.
+	 *
+	 * @param x the X coordinate of the textfield
+	 * @param y the Y coordinate of the textfield
+	 * @param w the width of the textfield
+	 * @param h the height of the textfield
+	 * @param defaultContent the default content of the textfield
+	 * @return the Textfield created
+	 */
+
+	public Textfield addTextfield(float x, float y, float w, float h, String defaultContent) {
+		Textfield tf = new Textfield(x,y,w,h,defaultContent,parent);
+		allTextfields.add(tf);
+		return tf;
 	}
 
 	//==================================================================================================================//
