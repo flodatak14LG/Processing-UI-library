@@ -106,6 +106,14 @@ public class Textfield {
     }
 
     /**
+     * Changes the text inside the textfield
+     * @param text       the new text
+     */
+    public void setText(String text) {
+        content = text;
+    }
+
+    /**
      * Changes the absolute position of the textfield.
      *
      * @param x

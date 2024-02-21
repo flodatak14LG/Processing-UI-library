@@ -17,8 +17,8 @@ import java.util.*;
  *
  */
 public class Button {
-    float x,y;
-    int w,h;
+    public float x,y;
+    public int w,h;
     PApplet parent;
 
     int color = 255;

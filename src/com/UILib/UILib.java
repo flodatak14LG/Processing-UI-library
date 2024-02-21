@@ -182,7 +182,7 @@ public class UILib {
 	}
 
 	/**
-	 * Adds an image actins as a button to the sketch.
+	 * Adds an image acting as a button to the sketch.
 	 * The button is drawn from the center.
 	 *
 	 <!-- * @example ButtonExample -->
@@ -241,7 +241,7 @@ public class UILib {
 	 * Adds a slider to the sketch.
 	 * The slider is drawn from the top-left corner.
 	 *
-	 <!-- * @example ButtonExample -->
+	 <!-- * @example SliderExample -->
 	 * @param x
 	 *               the X coordinate of the slider
 	 * @param y
@@ -264,7 +264,7 @@ public class UILib {
 	 * Adds a slider with a handle and tick marks to the sketch.
 	 * The slider is drawn from the top-left corner.
 	 *
-	 <!-- * @example ButtonExample -->
+	 <!-- * @example SliderExample -->
 	 * @param x
 	 *               the X coordinate of the slider
 	 * @param y

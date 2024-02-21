@@ -39,7 +39,7 @@ public class SliderHandle extends Slider {
         for(int i = 0;i<tickNum;i++) {
             parent.fill(255);
             parent.strokeWeight(1);
-            parent.rect(x+ w*i/(tickNum-1),y+h,2,h/3);
+            parent.rect(x+ w*i/(tickNum-1),y+h,2,h/4);
         }
     }
 

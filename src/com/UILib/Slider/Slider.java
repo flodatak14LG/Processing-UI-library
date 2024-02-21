@@ -19,8 +19,8 @@ import java.util.*;
  *
 */
 public class Slider {
-    float x,y;
-    float w,h;
+    public float x,y;
+    public float w,h;
     float handleX;
     public boolean sliding = false;
     PApplet parent;
