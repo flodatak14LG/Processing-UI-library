@@ -34,7 +34,7 @@ public class SliderHandle extends Slider {
         parent.strokeWeight(10);
         parent.line(x,y,x+w,y);
         parent.rectMode(CENTER);
-        snapToTicks();
+        if(!sliding) snapToTicks();
         parent.rect(handleX,y,handleW,h);
         for(int i = 0;i<tickNum;i++) {
             parent.fill(255);
