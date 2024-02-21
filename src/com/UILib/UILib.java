@@ -61,6 +61,8 @@ public class UILib {
 
 	List<Textfield> allTextfields = new ArrayList<Textfield>();
 
+	List<Joystick> allJoysticks = new ArrayList<Joystick>();
+
 	public final static String VERSION = "1.0";
 	
 
@@ -129,6 +131,9 @@ public class UILib {
 		}
 		for(Textfield tf : allTextfields) {
 			if (tf.isVisible )tf.draw();
+		}
+		for(Joystick joy: allJoysticks) {
+			if(joy.isVisible) {joy.update(); joy.draw(); }
 		}
 	}
 
@@ -299,6 +304,19 @@ public class UILib {
 		Textfield tf = new Textfield(x,y,w,h,defaultContent,parent);
 		allTextfields.add(tf);
 		return tf;
+	}
+
+	/**
+	 * Adds a Joystick to the sketch
+	 * @param x the X coordinate
+	 * @param y the Y coordinate
+	 * @param radius the overall radius of the joystick
+	 * @return the joystick created
+	 */
+	public Joystick addJoystick(float x, float y, float radius) {
+		Joystick joy = new Joystick(x,y,radius,parent);
+		allJoysticks.add(joy);
+		return joy;
 	}
 
 	//==================================================================================================================//
