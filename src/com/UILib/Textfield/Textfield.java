@@ -27,6 +27,8 @@ public class Textfield {
     public int bgColor=250;
     public int textColor=0;
     public int strokeColor = 0;
+
+    public boolean isVisible = true;
     Textfield(float xpos,float ypos,float Width,float Height,String defaultContent,PApplet parent) {
         x=xpos;
         y=ypos;
@@ -159,5 +161,19 @@ public class Textfield {
 
     public void setStrokeColor(int theColor) {
         strokeColor = theColor;
+    }
+
+    /**
+     * sets the textfield as visible
+     */
+    public void show() {
+        isVisible = true;
+    }
+
+    /**
+     * sets the textfield as hidden: not pressable anymore
+     */
+    public void hide() {
+        isVisible = false;
     }
 }

@@ -20,7 +20,6 @@ import java.util.*;
 
 public class SliderHandle extends Slider {
     int tickNum = 5;
-    boolean sliding = false;
     float handleW;
     SliderHandle(float x, float y, float w, float h, PApplet parent) {
         super(x,y,w,h,parent);
@@ -40,7 +39,7 @@ public class SliderHandle extends Slider {
         for(int i = 0;i<tickNum;i++) {
             parent.fill(255);
             parent.strokeWeight(1);
-            parent.rect(x+ w*i/(tickNum-1),y+h,2,30);
+            parent.rect(x+ w*i/(tickNum-1),y+h,2,h/3);
         }
     }
 
@@ -74,4 +73,11 @@ public class SliderHandle extends Slider {
         tickNum = number;
     }
 
+    /**
+     * Returns the number of the tick at which the handle is placed (0 being the first and tickNumber-1 being the last)
+     * @return an int between 0 and tickNumber-1
+     */
+    public int getTickPos() {
+        return (int)((handleX-x)*(tickNum-1)/w);
+    }
 }

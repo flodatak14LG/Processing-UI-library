@@ -82,12 +82,12 @@ public class UILib {
 	public void mouseEvent(MouseEvent event) {
 		if( event.getAction() == CLICK) {
 			println("click");
-			for(ButtonFunction button : allFunctionButtons) {
-				button.onClick();
-			}
 		} else if (event.getAction() == MouseEvent.PRESS) {
 			for(Textfield tf : allTextfields) {
-				tf.onClick();
+				if (tf.isVisible ) tf.onClick();
+			}
+			for(ButtonFunction button : allFunctionButtons) {
+				if (button.isVisible ) button.onClick();
 			}
 		}
 	}
@@ -95,7 +95,7 @@ public class UILib {
 	public void keyEvent(KeyEvent event) {
 		if( event.getAction() == KeyEvent.PRESS) {
 			for (Textfield tf : allTextfields) {
-				tf.onKeyPressed(parent.key , parent.keyCode);
+				if (tf.isVisible ) tf.onKeyPressed(parent.key , parent.keyCode);
 			}
 		}
 	}
@@ -107,24 +107,28 @@ public class UILib {
 	public void draw() {
 		//parent.rect(100,100,100,100);
 		for(Button button : allButtons) {
-			button.draw();
+			if (button.isVisible ) button.draw();
 		}
 		for(ButtonFunction button : allFunctionButtons) {
-			button.draw();
+			if (button.isVisible ) button.draw();
 		}
 		for(ButtonImage button : allImageButtons) {
-			button.draw();
+			if (button.isVisible ) button.draw();
 		}
 		for(Slider slider : allSliders) {
-			slider.update();
-			slider.draw();
+			if (slider.isVisible ) {
+				slider.update();
+				slider.draw();
+			}
 		}
 		for(SliderHandle slider : allHandleSliders) {
-			slider.update();
-			slider.draw();
+			if (slider.isVisible ) {
+				slider.update();
+				slider.draw();
+			}
 		}
 		for(Textfield tf : allTextfields) {
-			tf.draw();
+			if (tf.isVisible )tf.draw();
 		}
 	}
 

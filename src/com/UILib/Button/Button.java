@@ -23,6 +23,8 @@ public class Button {
 
     int color = 255;
     int strokeColor = 0;
+
+    public boolean isVisible = true;
     Button(float xb,float yb,int wb,int hb, PApplet theParent) {
         x=xb;
         y=yb;
@@ -32,7 +34,7 @@ public class Button {
     }
 
     public boolean isPressed() {
-        if(Math.abs(parent.mouseX-x)<w/2 && Math.abs(parent.mouseY-y)<h/2 && parent.mousePressed) {
+        if(Math.abs(parent.mouseX-x)<w/2 && Math.abs(parent.mouseY-y)<h/2 && parent.mousePressed && isVisible) {
             return true;
         } else return false;
     }
@@ -118,5 +120,19 @@ public class Button {
     public int[] getColors() {
         int[] colors = {color,strokeColor};
         return colors;
+    }
+
+    /**
+     * sets the button as visible
+     */
+    public void show() {
+        isVisible = true;
+    }
+
+    /**
+     * sets the button as hidden: not pressable anymore
+     */
+    public void hide() {
+        isVisible = false;
     }
 }

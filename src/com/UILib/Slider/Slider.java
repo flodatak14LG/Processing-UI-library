@@ -22,9 +22,11 @@ public class Slider {
     float x,y;
     float w,h;
     float handleX;
-    boolean sliding = false;
+    public boolean sliding = false;
     PApplet parent;
     int color = 0;
+
+    public boolean isVisible = true;
     Slider(float x,float y,float w,float h, PApplet parent) {
         this.x = x;
         this.y = y;
@@ -128,4 +130,17 @@ public class Slider {
         return (handleX-x)*100/w;
     }
 
+    /**
+     * sets the slider as visible
+     */
+    public void show() {
+        isVisible = true;
+    }
+
+    /**
+     * sets the slider as hidden: not slidable anymore
+     */
+    public void hide() {
+        isVisible = false;
+    }
 }
