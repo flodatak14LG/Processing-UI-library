@@ -80,4 +80,12 @@ public class SliderHandle extends Slider {
     public int getTickPos() {
         return (int)((handleX-x)*(tickNum-1)/w);
     }
+
+    /**
+     * Sets the tick at witch the handle is located
+     * @param tick the tick index : int between 0 and tickNum-1
+     */
+    public void setTickPos(int tick) {
+        handleX = handleX= x+ w*tick/(tickNum-1);
+    }
 }
