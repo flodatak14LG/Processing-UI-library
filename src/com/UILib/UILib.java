@@ -56,6 +56,8 @@ public class UILib {
 	List<ButtonFunction> allFunctionButtons = new ArrayList<ButtonFunction>();
 	List<ButtonImage> allImageButtons = new ArrayList<ButtonImage>();
 
+	List<Checkbox> allCheckboxes = new ArrayList<Checkbox>();
+
 	List<Slider> allSliders = new ArrayList<Slider>();
 	List<SliderHandle> allHandleSliders = new ArrayList<SliderHandle>();
 
@@ -91,6 +93,9 @@ public class UILib {
 			for(ButtonFunction button : allFunctionButtons) {
 				if (button.isVisible ) button.onClick();
 			}
+			for(Checkbox cb : allCheckboxes) {
+				if(cb.isVisible) cb.onClick();
+			}
 		}
 	}
 
@@ -116,6 +121,9 @@ public class UILib {
 		}
 		for(ButtonImage button : allImageButtons) {
 			if (button.isVisible ) button.draw();
+		}
+		for(Checkbox cb : allCheckboxes) {
+			if(cb.isVisible) cb.draw();
 		}
 		for(Slider slider : allSliders) {
 			if (slider.isVisible ) {
@@ -209,6 +217,12 @@ public class UILib {
 		ButtonImage  b = new ButtonImage(x,y,w,h,image,parent);
 		allImageButtons.add(b);
 		return b;
+	}
+
+	public Checkbox addCheckbox(float x,float y, int w, int h) {
+		Checkbox cb = new Checkbox(x,y,w,h,parent);
+		allCheckboxes.add(cb);
+		return cb;
 	}
 
 	/**
