@@ -143,7 +143,7 @@ public class UILib {
 		for(Joystick joy: allJoysticks) {
 			if(joy.isVisible) {
 				joy.update();
-				if(jy.isAutoDraw) joy.draw();
+				if(joy.isAutoDraw) joy.draw();
 			}
 		}
 	}
