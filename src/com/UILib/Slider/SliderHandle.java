@@ -21,6 +21,7 @@ import java.util.*;
 public class SliderHandle extends Slider {
     int tickNum = 5;
     float handleW;
+    public boolean isShowTicks = true;
     SliderHandle(float x, float y, float w, float h, PApplet parent) {
         super(x,y,w,h,parent);
         handleX = x+w/2;
@@ -36,10 +37,12 @@ public class SliderHandle extends Slider {
         parent.rectMode(CENTER);
         if(!sliding) snapToTicks();
         parent.rect(handleX,y,handleW,h);
-        for(int i = 0;i<tickNum;i++) {
-            parent.fill(255);
-            parent.strokeWeight(1);
-            parent.rect(x+ w*i/(tickNum-1),y+h,2,h/4);
+        parent.strokeWeight(1);
+        if(isShowTicks) {
+            for (int i = 0; i < tickNum; i++) {
+                parent.fill(255);
+                parent.rect(x + w * i / (tickNum - 1), y + h, 2, h / 4);
+            }
         }
     }
 
@@ -87,5 +90,19 @@ public class SliderHandle extends Slider {
      */
     public void setTickPos(int tick) {
         handleX = handleX= x+ w*tick/(tickNum-1);
+    }
+
+    /**
+     * Sets the tick marks as visible
+     */
+    public void showTicks() {
+        isShowTicks = true;
+    }
+
+    /**
+     * Sets the tick marks as hidden
+     */
+    public void hideTicks() {
+        isShowTicks = false;
     }
 }

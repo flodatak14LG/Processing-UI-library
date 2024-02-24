@@ -124,7 +124,7 @@ public class Textfield {
      *
      */
 
-    public void setPosition(int x,int y) {
+    public void setPosition(float x,float y) {
         this.x = x;
         this.y = y;
     }
@@ -195,4 +195,5 @@ public class Textfield {
     public void setAutoDraw(boolean flag) {
         isAutoDraw = flag;
     }
+
 }

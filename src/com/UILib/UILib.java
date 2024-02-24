@@ -222,6 +222,15 @@ public class UILib {
 		return b;
 	}
 
+	/**
+	 * Adds a checkbox to the sketch
+	 * <!-- * @example CheckboxExample -->
+	 * @param x the X coordinate of the Checkbox
+	 * @param y the Y coordinate
+	 * @param w the width of the Checkbox
+	 * @param h the height
+	 * @return the Checkbox created
+	 */
 	public Checkbox addCheckbox(float x,float y, int w, int h) {
 		Checkbox cb = new Checkbox(x,y,w,h,parent);
 		allCheckboxes.add(cb);
