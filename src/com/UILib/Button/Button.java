@@ -25,6 +25,7 @@ public class Button {
     int strokeColor = 0;
 
     public boolean isVisible = true;
+    public boolean isAutoDraw = true;
     Button(float xb,float yb,int wb,int hb, PApplet theParent) {
         x=xb;
         y=yb;
@@ -134,5 +135,15 @@ public class Button {
      */
     public void hide() {
         isVisible = false;
+    }
+
+    /**
+     * Sets wether the button is drawn automatically or not.
+     * Call .draw() to draw manually.
+     * Should not be used to hide the button.
+     * @param flag true or false
+     */
+    public void setAutoDraw(boolean flag) {
+        isAutoDraw = flag;
     }
 }

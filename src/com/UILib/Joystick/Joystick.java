@@ -18,6 +18,7 @@ public class Joystick {
     public float Xj,Yj;
     PApplet parent;
     public boolean isVisible = true;
+    public boolean isAutoDraw = true;
     Joystick(float x,float y,float radius,PApplet parent) {
         centerX = x;
         centerY = y;
@@ -97,6 +98,16 @@ public class Joystick {
      */
     public void hide() {
         isVisible = false;
+    }
+
+    /**
+     * Sets wether the joystick is drawn automatically or not.
+     * Call .draw() to draw manually.
+     * Should not be used to hide the joystick.
+     * @param flag true or false
+     */
+    public void setAutoDraw(boolean flag) {
+        isAutoDraw = flag;
     }
 
     /**

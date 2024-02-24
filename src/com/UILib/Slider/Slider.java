@@ -27,6 +27,7 @@ public class Slider {
     int color = 0;
 
     public boolean isVisible = true;
+    public boolean isAutoDraw = true;
     Slider(float x,float y,float w,float h, PApplet parent) {
         this.x = x;
         this.y = y;
@@ -142,5 +143,15 @@ public class Slider {
      */
     public void hide() {
         isVisible = false;
+    }
+
+    /**
+     * Sets wether the slider is drawn automatically or not.
+     * Call .draw() to draw manually.
+     * Should not be used to hide the slider.
+     * @param flag true or false
+     */
+    public void setAutoDraw(boolean flag) {
+        isAutoDraw = flag;
     }
 }

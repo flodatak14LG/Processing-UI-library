@@ -29,6 +29,7 @@ public class Textfield {
     public int strokeColor = 0;
 
     public boolean isVisible = true;
+    public boolean isAutoDraw = true;
     Textfield(float xpos,float ypos,float Width,float Height,String defaultContent,PApplet parent) {
         x=xpos;
         y=ypos;
@@ -183,5 +184,15 @@ public class Textfield {
      */
     public void hide() {
         isVisible = false;
+    }
+
+    /**
+     * Sets wether the textfield is drawn automatically or not.
+     * Call .draw() to draw manually.
+     * Should not be used to hide the textfield.
+     * @param flag true or false
+     */
+    public void setAutoDraw(boolean flag) {
+        isAutoDraw = flag;
     }
 }

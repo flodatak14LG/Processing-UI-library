@@ -114,34 +114,37 @@ public class UILib {
 	public void draw() {
 		//parent.rect(100,100,100,100);
 		for(Button button : allButtons) {
-			if (button.isVisible ) button.draw();
+			if (button.isVisible && button.isAutoDraw) button.draw();
 		}
 		for(ButtonFunction button : allFunctionButtons) {
-			if (button.isVisible ) button.draw();
+			if (button.isVisible && button.isAutoDraw) button.draw();
 		}
 		for(ButtonImage button : allImageButtons) {
-			if (button.isVisible ) button.draw();
+			if (button.isVisible && button.isAutoDraw) button.draw();
 		}
 		for(Checkbox cb : allCheckboxes) {
-			if(cb.isVisible) cb.draw();
+			if(cb.isVisible && cb.isAutoDraw) cb.draw();
 		}
 		for(Slider slider : allSliders) {
-			if (slider.isVisible ) {
+			if (slider.isVisible) {
+				if(slider.isAutoDraw) slider.draw();
 				slider.update();
-				slider.draw();
 			}
 		}
 		for(SliderHandle slider : allHandleSliders) {
-			if (slider.isVisible ) {
+			if (slider.isVisible) {
+				if(slider.isAutoDraw) slider.draw();
 				slider.update();
-				slider.draw();
 			}
 		}
 		for(Textfield tf : allTextfields) {
-			if (tf.isVisible )tf.draw();
+			if (tf.isVisible && tf.isAutoDraw)tf.draw();
 		}
 		for(Joystick joy: allJoysticks) {
-			if(joy.isVisible) {joy.update(); joy.draw(); }
+			if(joy.isVisible) {
+				joy.update();
+				if(jy.isAutoDraw) joy.draw();
+			}
 		}
 	}
 
