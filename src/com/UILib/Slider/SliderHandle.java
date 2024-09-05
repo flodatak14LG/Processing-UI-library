@@ -85,7 +85,7 @@ public class SliderHandle extends Slider {
     }
 
     /**
-     * Sets the tick at witch the handle is located
+     * Sets the tick at which the handle is located
      * @param tick the tick index : int between 0 and tickNum-1
      */
     public void setTickPos(int tick) {
