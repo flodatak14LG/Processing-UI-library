@@ -1,5 +1,7 @@
 package UILib;
-
+/** TODO:
+ *  change color of text method
+ */
 
 import processing.core.*;
 
@@ -26,6 +28,8 @@ public class Button {
 
     public boolean isVisible = true;
     public boolean isAutoDraw = true;
+
+    String text = "";
     Button(float xb,float yb,int wb,int hb, PApplet theParent) {
         x=xb;
         y=yb;
@@ -55,6 +59,10 @@ public class Button {
             parent.fill(parent.color(150,100));
             parent.rect(x,y,w,h);
         }
+        parent.textAlign(parent.CENTER);
+        parent.textSize(h-(20*h/100));
+        parent.fill(0);
+        parent.text(text,x,y+(20*h/100));
     }
 
     /**
@@ -112,11 +120,17 @@ public class Button {
     }
 
     /**
+     * Sets the text to be displayed inside the button
+     * @param newText the text
+     */
+    public void setText(String newText) {this.text=newText;}
+    /**
      * Returns the background color (color) and the utline color (strokeColor)
      *
      * @return	array of both color ans stroke color: [color,strokeColor]
      *
      */
+
 
     public int[] getColors() {
         int[] colors = {color,strokeColor};
